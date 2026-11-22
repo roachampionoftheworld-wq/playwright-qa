@@ -1,6 +1,8 @@
 import { test, expect } from '@playwright/test';
+
 import { LoginPage } from '../pages/LoginPage';
 import { InventoryPage } from '../pages/InventoryPage';
+import { CartPage } from '../pages/CartPage';
 
 test('agregar la mochila al carrito muestra 1 producto', async ({ page }) => {
   const loginPage = new LoginPage(page);
@@ -12,4 +14,7 @@ test('agregar la mochila al carrito muestra 1 producto', async ({ page }) => {
   await inventoryPage.agregarMochila();
 
   await expect.poll(() => inventoryPage.cantidadEnCarrito()).toBe('1');
+  const cartPage = new CartPage(page);
+  await cartPage.abrir();
+  await expect.poll(() => cartPage.nombreDelProducto()).toBe('Sauce Labs Backpack');
 });
