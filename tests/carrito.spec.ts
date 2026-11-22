@@ -12,4 +12,4 @@ test('agregar la mochila al carrito muestra 1 producto', async ({ page }) => {
   await inventoryPage.agregarMochila();
 
   await expect.poll(() => inventoryPage.cantidadEnCarrito()).toBe('1');
-}); LISTO
+});
