@@ -17,4 +17,5 @@ test('agregar la mochila al carrito muestra 1 producto', async ({ page }) => {
   const cartPage = new CartPage(page);
   await cartPage.abrir();
   await expect.poll(() => cartPage.nombreDelProducto()).toBe('Sauce Labs Backpack');
-});
+}); 
+
